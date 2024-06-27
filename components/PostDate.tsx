@@ -1,4 +1,7 @@
-import { format, parseISO } from 'date-fns'
+import { format, parseISO, setDefaultOptions } from 'date-fns'
+import { ar } from 'date-fns/locale'
+
+setDefaultOptions({ locale: ar })
 
 export default function PostDate({ dateString }: { dateString: string }) {
   if (!dateString) return null
