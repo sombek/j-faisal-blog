@@ -158,6 +158,8 @@ async function queryStaleRoutes(
       return await queryStalePostRoutes(client, body._id)
     case 'settings':
       return await queryAllRoutes(client)
+    case 'sanity.previewUrlSecret':
+      return ['/']
     default:
       throw new TypeError(`Unknown type: ${body._type}`)
   }
