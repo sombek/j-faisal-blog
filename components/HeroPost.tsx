@@ -8,19 +8,19 @@ export default function HeroPost(
   props: Pick<
     Post,
     'title' | 'coverImage' | 'date' | 'excerpt' | 'author' | 'slug'
-  >
+  >,
 ) {
   const { title, coverImage, date, excerpt, author, slug } = props
   return (
     <section className={'mx-auto max-w-3xl '}>
-      {
-        coverImage && <div className="mb-8 md:mb-16">
+      {coverImage && (
+        <div className="mb-8 md:mb-16">
           <CoverImage slug={slug} title={title} image={coverImage} priority />
         </div>
-      }
+      )}
 
-      <div className="flex md:gap-x-16 lg:gap-x-8">
-        <div className={'col-span-10'}>
+      <div className="grid grid-rows-2 gap-4">
+        <div>
           <h3 className=" mb-4 text-4xl leading-tight lg:text-6xl text-wrap">
             <Link href={`/posts/${slug}`} className="hover:underline">
               {title || 'Untitled'}
@@ -30,7 +30,8 @@ export default function HeroPost(
             <Date dateString={date} />
           </div>
         </div>
-        <div className={'col-span-2 self-center'}>
+
+        <div>
           {excerpt && (
             <p className="mb-4 text-lg leading-relaxed text-pretty">
               {excerpt}
